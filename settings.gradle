@@ -1,2 +1,2 @@
+include ':lib'
 rootProject.name = 'junit-flaky'
-

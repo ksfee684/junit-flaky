@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'com.jfrog.bintray'
+
+group = 'org.ksfee'
+version = '0.1.0'
+def webUrl = 'https://github.com/ksfee684/junit-flaky'
+def gitUrl = 'https://github.com/ksfee684/junit-flaky.git'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+
+    testCompile 'junit:junit:4.12'
+}
+
+bintray {
+    user = bintray_user
+    key = bintray_api_key
+
+    pkg {
+        repo = 'maven'
+        name = 'junit-flaky'
+        userOrg = bintray_user
+        desc = 'The plugin for flaky tests to execute in JUnit.'
+        websiteUrl = webUrl
+        issueTrackerUrl = 'https://github.com/ksfee684/junit-flaky/issues'
+        vcsUrl = gitUrl
+        licenses = ['Apache-2.0']
+
+        version {
+            name = version
+            released = new Date()
+        }
+    }
+}
